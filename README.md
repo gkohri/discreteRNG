@@ -41,3 +41,4 @@ All classes  are designed to work within the C++11 standard framework for Pseudo
 
 `discrete_distribution_30bit` is about four times faster than `discrete_distribution` when generating random deviates, but needs much longer for the initiation. Both classes are faster than the standard implementation.
 
+`well_1024`: A uniform, 32 bit, psuedo random number generator with a period of 2^1024. The Well algorith will thermalize faster than Matsumoto and Nishimura's Mercene twister. The implementation here is faster than the standard `mersenne_twister`.
