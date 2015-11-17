@@ -4,7 +4,7 @@
 
 ## Zipf-Mandelbrot
 
-The Zipf-Mandelbrot distribution is finds uses in many applications. The general form of the probability mass function is:
+The Zipf-Mandelbrot distribution finds uses in many applications. The general form of the probability mass function is:
 
 
 > f(k;N,q,s) = 1/( H(N,q,s)*(k+q)^s )
