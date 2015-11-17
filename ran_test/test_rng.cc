@@ -47,13 +47,11 @@
 
 using std::vector;
 using std::uniform_real_distribution;
-using std::discrete_distribution;
 using std::mt19937;
 
-using rng::Well_1024;
+using rng::well_1024;
 using rng::discrete_distribution_30bit;
-using rng::DiscreteDistribution;
-using rng::ZipfMandelbrotDistribution;
+using rng::zipf_mandelbrot_distribution;
 using util::Timer;
 
 
@@ -177,7 +175,7 @@ int main( int argc, char* argv[] ) {
 
     // choose a uniform random number generator
 
-    Well_1024 urng{ 15791113 };
+    well_1024 urng{ 15791113 };
     //mt19937 urng{ 15791113 };
 
     vector<double> weights(N, 0.0);
@@ -220,7 +218,7 @@ int main( int argc, char* argv[] ) {
     timer.elapsed( real_time, cpu_time );
 
     double alpha = 1.75;
-    ZipfMandelbrotDistribution<discrete_distribution_30bit,int> zm( alpha );
+    zipf_mandelbrot_distribution<discrete_distribution_30bit,int> zm( alpha );
 
     timer.elapsed( real_time, cpu_time );
 

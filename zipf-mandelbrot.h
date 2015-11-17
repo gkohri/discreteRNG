@@ -64,7 +64,7 @@ namespace rng {
 
 
 template< template<typename> class Discrete_Dist, typename Int_Type = uint32_t >
-class ZipfMandelbrotDistribution {
+class zipf_mandelbrot_distribution {
 
     static_assert( std::is_integral<Int_Type>::value,
                    "template argument not an integral type");
@@ -84,7 +84,7 @@ class ZipfMandelbrotDistribution {
     typedef Int_Type result_type;
 
     /**
-     * Creates a new ZipfMandelbrotDistribution given s, q, N
+     * Creates a new zipf_mandelbrot_distribution given s, q, N
      * 
      *           p(k;N,q,s) = 1/( H(N,q,s)*(k+q)^s )
      *
@@ -98,7 +98,7 @@ class ZipfMandelbrotDistribution {
      * If N=0 (default) the maximum value of N realizeable with a 32 bit
      * unsigned integer given the values of q and s is calculated.
      */
-    explicit ZipfMandelbrotDistribution( const double   s,
+    explicit zipf_mandelbrot_distribution( const double   s,
                                          const uint32_t q = 0, 
                                          const uint32_t N = 0 ) : s_(s), 
                                                                    q_(q), 
@@ -135,7 +135,7 @@ class ZipfMandelbrotDistribution {
 
     }
 
-    ~ZipfMandelbrotDistribution() {
+    ~zipf_mandelbrot_distribution() {
         if ( dd_ != NULL ) {
             delete dd_;
             dd_ = NULL;
@@ -161,13 +161,13 @@ class ZipfMandelbrotDistribution {
         return static_cast<result_type>( N_ );
     }
 
-    friend bool operator==( const ZipfMandelbrotDistribution& v1, 
-                            const ZipfMandelbrotDistribution& v2) {
+    friend bool operator==( const zipf_mandelbrot_distribution& v1, 
+                            const zipf_mandelbrot_distribution& v2) {
         return v1.probs_ == v2.probs_;
     }
 
-    friend bool operator!=( const ZipfMandelbrotDistribution& v1, 
-                            const ZipfMandelbrotDistribution& v2) {
+    friend bool operator!=( const zipf_mandelbrot_distribution& v1, 
+                            const zipf_mandelbrot_distribution& v2) {
         return !( v1.probs_ == v2.probs_ );
     }
 

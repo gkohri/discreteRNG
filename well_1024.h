@@ -178,7 +178,7 @@ operator!=( const rng::well_engine<uint_type>& lhs,
 /**
  *  The default RNG returns 32 bit unsigned integers
  */
-typedef well_engine<uint32_t> Well_1024;
+typedef well_engine<uint32_t> well_1024;
 
 
 }  // namespace rng

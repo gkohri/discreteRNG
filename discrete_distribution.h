@@ -24,7 +24,7 @@
 namespace rng {
 
 template<typename _IntType = int >
-class DiscreteDistribution {
+class discrete_distribution {
 
     static_assert( std::is_integral<_IntType>::value,
                    "template argument not an integral type");
@@ -50,7 +50,7 @@ class DiscreteDistribution {
      */
 
     template <class InputIterator>
-    DiscreteDistribution( InputIterator first, InputIterator last ): 
+    discrete_distribution( InputIterator first, InputIterator last ): 
                                                 weights( first, last ),
                                                 table( weights.size() ),
                                                 uid( 0, weights.size()-1 ),
@@ -93,8 +93,8 @@ class DiscreteDistribution {
                                  result_type( weights.size() - 1 );
     }
 
-    friend bool operator==( const DiscreteDistribution & _v1, 
-                            const DiscreteDistribution &_v2) {
+    friend bool operator==( const discrete_distribution & _v1, 
+                            const discrete_distribution &_v2) {
         return _v1.weights == _v2.weights;
     }
 
@@ -105,7 +105,7 @@ private:
         double sum = std::accumulate( weights.begin(), weights.end(), 0.0 );
 
         if ( sum == 0.0 ) {
-            perror( "DiscreteDistribution():weights sum to zero" );
+            perror( "discrete_distribution():weights sum to zero" );
             abort();
         }
 
@@ -165,8 +165,8 @@ private:
 };
 
 template<typename _IntType>
-inline bool operator!=( const rng::DiscreteDistribution<_IntType> & _v1, 
-                        const rng::DiscreteDistribution<_IntType> &_v2) {
+inline bool operator!=( const rng::discrete_distribution<_IntType> & _v1, 
+                        const rng::discrete_distribution<_IntType> &_v2) {
         return !(_v1.weights == _v2.weights);
 }
 
